@@ -1,3 +1,3 @@
 # Python-Youtube-Search-Scraper
 
-Scrape YouTube video details whatever scroll you want
+Scrape YouTube video with details whatever scroll you want
