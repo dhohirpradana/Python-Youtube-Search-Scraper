@@ -1,34 +1,10 @@
-# import time
-
-# from selenium import webdriver
-# from selenium.webdriver.common.keys import Keys
-# from selenium.webdriver.common.by import By
-
-# browser = webdriver.Chrome()
-
-# browser.get("https://www.youtube.com/results?search_query=indonesia")
-# time.sleep(1)
-
-# print(browser.find_elements(By.XPATH, "//div[@id='contents']"))
-
-# post_elems = browser.find_elements(By.XPATH, "//div[@id='contents']")
-# elem = browser.find_element_by_tag_name("body")
-
-# no_of_pagedowns = 20
-
-# while no_of_pagedowns:
-#     elem.send_keys(Keys.PAGE_DOWN)
-#     time.sleep(0.2)
-#     no_of_pagedowns-=1
-
-# for post in post_elems:
-#     print(post.text)
-
 from selenium import webdriver
 import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import urllib.parse
+import datetime
 
 # options = webdriver.ChromeOptions()
 # # options.add_argument("start-maximized")
@@ -45,7 +21,12 @@ options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--disable-features=VizDisplayCompositor")
 options.add_argument("--disable-features=NetworkService")
 driver = webdriver.Firefox(options=options)
-driver.get("https://www.youtube.com/results?search_query=indonesia")
+
+query = "gudang garam"
+query_url = urllib.parse.quote(query)
+print('Query URL: ', query_url)
+
+driver.get(f"https://www.youtube.com/results?search_query={query_url}")
 
 scroll_height = driver.execute_script("return window.innerHeight")
 # while we have not reached the max scrollHeight
@@ -57,15 +38,13 @@ video_published_times = []
 max_scroll = 3
 # while True:
 while max_scroll > 0:
-    print("max_scroll:", max_scroll)
+    print("scroll:", max_scroll)
     max_scroll -= 1
     video_ids = driver.find_elements(By.XPATH, "//a[@id='video-title']")
     for i, video_id in enumerate(video_ids):
         video_links.append(video_id.get_attribute("href"))
         video_titles.append(video_id.get_attribute("title"))
-    # print([title.text for title in titles])
-    # print([video_id.get_attribute("href") for video_id in video_ids])
-    # view counts inline-metadata-item style-scope ytd-video-meta-block
+        
     video_infos = driver.find_elements(
         By.XPATH, "//span[@class='inline-metadata-item style-scope ytd-video-meta-block']")
     # for view_count in view_counts:
@@ -87,7 +66,8 @@ while max_scroll > 0:
     # print("Video titles:", video_titles)
     
     # write to file
-    with open("video_details.txt", "w") as f:
+    now = datetime.datetime.now()
+    with open(f"{query}-{now}.txt", "w") as f:
         for i, video_link in enumerate(video_links):
             if i < len(video_links) - 1:
                 f.write(f"{video_link} ‽ {video_titles[i]} ‽ {video_views[i]} ‽ {video_published_times[i]}\n")

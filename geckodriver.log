@@ -241,3 +241,48 @@ DevTools listening on ws://127.0.0.1:53297/devtools/browser/55824132-cab7-4b61-9
 [2023-01-22T15:57:28Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
 [2023-01-22T15:57:28Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
 [2023-01-22T15:57:28Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+1674403403895	geckodriver	INFO	Listening on 127.0.0.1:38553
+1674403404337	mozrunner::runner	INFO	Running command: "/snap/firefox/current/firefox.launcher" "--marionette" "--headless" "--window-size=1920,1080" "--disable-gp ... ce" "--remote-debugging-port" "38309" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile9zOL9u"
+*** You are running in headless mode.
+1674403404589	Marionette	INFO	Marionette enabled
+1674403404592	Marionette	INFO	Listening on port 37515
+Read port: 37515
+WebDriver BiDi listening on ws://127.0.0.1:38309
+1674403404683	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile9zOL9u/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:38309/devtools/browser/e1a65544-6a85-4b7d-84f0-5dd7c2b7c1e5
+[2023-01-22T16:03:29Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:03:29Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:03:29Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:03:29Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+1674403581755	geckodriver	INFO	Listening on 127.0.0.1:53217
+1674403582199	mozrunner::runner	INFO	Running command: "/snap/firefox/current/firefox.launcher" "--marionette" "--headless" "--window-size=1920,1080" "--disable-gp ... ce" "--remote-debugging-port" "41899" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile0yTTQg"
+*** You are running in headless mode.
+1674403582450	Marionette	INFO	Marionette enabled
+1674403582453	Marionette	INFO	Listening on port 34637
+Read port: 34637
+WebDriver BiDi listening on ws://127.0.0.1:41899
+1674403582549	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile0yTTQg/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:41899/devtools/browser/d968a9e2-3b0c-4959-bb36-43314da26ffc
+[2023-01-22T16:06:25Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:06:25Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:06:25Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:06:26Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+1674403601000	geckodriver	INFO	Listening on 127.0.0.1:39349
+1674403601456	mozrunner::runner	INFO	Running command: "/snap/firefox/current/firefox.launcher" "--marionette" "--headless" "--window-size=1920,1080" "--disable-gp ... ce" "--remote-debugging-port" "42589" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileFjUJDY"
+*** You are running in headless mode.
+1674403601697	Marionette	INFO	Marionette enabled
+1674403601700	Marionette	INFO	Listening on port 33233
+Read port: 33233
+WebDriver BiDi listening on ws://127.0.0.1:42589
+1674403601811	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileFjUJDY/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:42589/devtools/browser/4fef5f69-cdc0-4415-a3c2-33aa298bd76d
+[2023-01-22T16:06:44Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:06:44Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:06:44Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:06:44Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
