@@ -286,3 +286,78 @@ DevTools listening on ws://127.0.0.1:42589/devtools/browser/4fef5f69-cdc0-4415-a
 [2023-01-22T16:06:44Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
 [2023-01-22T16:06:44Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
 [2023-01-22T16:06:44Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+1674403798271	geckodriver	INFO	Listening on 127.0.0.1:51401
+1674403798715	mozrunner::runner	INFO	Running command: "/snap/firefox/current/firefox.launcher" "--marionette" "--headless" "--window-size=1920,1080" "--disable-gp ... ce" "--remote-debugging-port" "48555" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileRLfyQ2"
+*** You are running in headless mode.
+1674403798975	Marionette	INFO	Marionette enabled
+1674403798978	Marionette	INFO	Listening on port 34679
+Read port: 34679
+WebDriver BiDi listening on ws://127.0.0.1:48555
+1674403799078	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileRLfyQ2/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:48555/devtools/browser/884ab162-a410-4517-92f0-e4b921da1c5d
+[2023-01-22T16:10:01Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:10:01Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:10:01Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:10:01Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+1674403814149	geckodriver	INFO	Listening on 127.0.0.1:55399
+1674403814599	mozrunner::runner	INFO	Running command: "/snap/firefox/current/firefox.launcher" "--marionette" "--headless" "--window-size=1920,1080" "--disable-gp ... ce" "--remote-debugging-port" "39423" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileRLDOtm"
+*** You are running in headless mode.
+1674403814847	Marionette	INFO	Marionette enabled
+1674403814850	Marionette	INFO	Listening on port 36209
+Read port: 36209
+WebDriver BiDi listening on ws://127.0.0.1:39423
+1674403814942	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileRLDOtm/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:39423/devtools/browser/b0630e3a-5ac6-4144-bb3f-3471f3432b24
+[2023-01-22T16:10:17Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:10:17Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:10:20Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:10:20Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+1674403917529	geckodriver	INFO	Listening on 127.0.0.1:33109
+1674403917980	mozrunner::runner	INFO	Running command: "/snap/firefox/current/firefox.launcher" "--marionette" "--headless" "--window-size=1920,1080" "--disable-gp ... ce" "--remote-debugging-port" "44279" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileLciGnA"
+*** You are running in headless mode.
+1674403918257	Marionette	INFO	Marionette enabled
+1674403918261	Marionette	INFO	Listening on port 44721
+Read port: 44721
+WebDriver BiDi listening on ws://127.0.0.1:44279
+1674403918366	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileLciGnA/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:44279/devtools/browser/a2096193-4209-488a-98ca-0d98d35dca74
+[2023-01-22T16:12:01Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:12:01Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:12:01Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:12:01Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+1674404016490	geckodriver	INFO	Listening on 127.0.0.1:45445
+1674404016912	mozrunner::runner	INFO	Running command: "/snap/firefox/current/firefox.launcher" "--marionette" "--headless" "--window-size=1920,1080" "--disable-gp ... ce" "--remote-debugging-port" "54665" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilero15GL"
+*** You are running in headless mode.
+1674404017182	Marionette	INFO	Marionette enabled
+1674404017186	Marionette	INFO	Listening on port 36943
+Read port: 36943
+WebDriver BiDi listening on ws://127.0.0.1:54665
+1674404017285	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilero15GL/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:54665/devtools/browser/26c264c5-a155-46c9-ac06-5d0944087762
+[2023-01-22T16:13:39Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:13:39Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:13:39Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:13:39Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+1674404106732	geckodriver	INFO	Listening on 127.0.0.1:42195
+1674404107181	mozrunner::runner	INFO	Running command: "/snap/firefox/current/firefox.launcher" "--marionette" "--headless" "--window-size=1920,1080" "--disable-gp ... ce" "--remote-debugging-port" "47097" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileTTFQj3"
+*** You are running in headless mode.
+1674404107449	Marionette	INFO	Marionette enabled
+1674404107452	Marionette	INFO	Listening on port 38381
+Read port: 38381
+WebDriver BiDi listening on ws://127.0.0.1:47097
+1674404107556	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileTTFQj3/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:47097/devtools/browser/250ca951-fd12-450d-816f-ae2ed85a3f85
+[2023-01-22T16:15:10Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:15:10Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:15:10Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:15:11Z ERROR mp4parse] Found 2 nul bytes in "\0\0"

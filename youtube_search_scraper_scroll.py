@@ -25,6 +25,7 @@ driver = webdriver.Firefox(options=options)
 query = "gudang garam"
 query_url = urllib.parse.quote(query)
 print('Query URL: ', query_url)
+now = datetime.datetime.now()
 
 driver.get(f"https://www.youtube.com/results?search_query={query_url}")
 
@@ -36,9 +37,10 @@ video_views = []
 video_published_times = []
 
 max_scroll = 3
+file_name = f"{query}-scroll={max_scroll}_{now.strftime('%Y%m%d_%H%M%S')}"
 # while True:
 while max_scroll > 0:
-    print("scroll:", max_scroll)
+    print("Scroll:", max_scroll)
     max_scroll -= 1
     video_ids = driver.find_elements(By.XPATH, "//a[@id='video-title']")
     for i, video_id in enumerate(video_ids):
@@ -66,8 +68,7 @@ while max_scroll > 0:
     # print("Video titles:", video_titles)
     
     # write to file
-    now = datetime.datetime.now()
-    with open(f"{query}-{now}.txt", "w") as f:
+    with open(f"results/{file_name}.txt", "a") as f:
         for i, video_link in enumerate(video_links):
             if i < len(video_links) - 1:
                 f.write(f"{video_link} ‽ {video_titles[i]} ‽ {video_views[i]} ‽ {video_published_times[i]}\n")
