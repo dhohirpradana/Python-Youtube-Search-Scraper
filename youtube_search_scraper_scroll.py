@@ -36,8 +36,8 @@ video_titles = []
 video_views = []
 video_published_times = []
 
-max_scroll = 3
-file_name = f"{query}-scroll={max_scroll}_{now.strftime('%Y%m%d_%H%M%S')}"
+max_scroll = 10
+file_name = f"{query}_scroll-{max_scroll}_{now.strftime('%Y%m%d_%H%M%S')}"
 # while True:
 while max_scroll > 0:
     print("Scroll:", max_scroll)
