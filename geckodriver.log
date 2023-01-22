@@ -379,3 +379,18 @@ DevTools listening on ws://127.0.0.1:53379/devtools/browser/fae3ac83-06b2-4b2d-b
 Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
+1674404263546	geckodriver	INFO	Listening on 127.0.0.1:48231
+1674404264000	mozrunner::runner	INFO	Running command: "/snap/firefox/current/firefox.launcher" "--marionette" "--headless" "--window-size=1920,1080" "--disable-gp ... ce" "--remote-debugging-port" "49273" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileEqKVgQ"
+*** You are running in headless mode.
+1674404264275	Marionette	INFO	Marionette enabled
+1674404264278	Marionette	INFO	Listening on port 41825
+Read port: 41825
+WebDriver BiDi listening on ws://127.0.0.1:49273
+1674404264383	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileEqKVgQ/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:49273/devtools/browser/ac472f03-879f-4f17-a262-35abe4867940
+[2023-01-22T16:17:47Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:17:47Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:17:47Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-22T16:17:47Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
