@@ -64,9 +64,6 @@ while max_scroll > 0:
     driver.execute_script(
         f"window.scrollTo(0, {document_height_before + scroll_height});")
     
-    # print("Video links:", video_links)
-    # print("Video titles:", video_titles)
-    
     # write to file
     with open(f"results/{file_name}.txt", "a") as f:
         for i, video_link in enumerate(video_links):
