@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import urllib.parse
+import os
 import datetime
 
 # options = webdriver.ChromeOptions()
@@ -36,7 +37,7 @@ video_titles = []
 video_views = []
 video_published_times = []
 
-max_scroll = 10
+max_scroll = 2
 file_name = f"{query}_scroll-{max_scroll}_{now.strftime('%Y%m%d_%H%M%S')}"
 # while True:
 while max_scroll > 0:
@@ -46,7 +47,7 @@ while max_scroll > 0:
     for i, video_id in enumerate(video_ids):
         video_links.append(video_id.get_attribute("href"))
         video_titles.append(video_id.get_attribute("title"))
-        
+
     video_infos = driver.find_elements(
         By.XPATH, "//span[@class='inline-metadata-item style-scope ytd-video-meta-block']")
     # for view_count in view_counts:
@@ -63,15 +64,17 @@ while max_scroll > 0:
         "return document.documentElement.scrollHeight")
     driver.execute_script(
         f"window.scrollTo(0, {document_height_before + scroll_height});")
-    
+
     # write to file
     with open(f"results/{file_name}.txt", "a") as f:
         for i, video_link in enumerate(video_links):
             if i < len(video_links) - 1:
-                f.write(f"{video_link} ‽ {video_titles[i]} ‽ {video_views[i]} ‽ {video_published_times[i]}\n")
+                f.write(
+                    f"{video_link} ‽ {video_titles[i]} ‽ {video_views[i]} ‽ {video_published_times[i]}\n")
             else:
-                f.write(f"{video_link} ‽ {video_titles[i]} ‽ {video_views[i]} ‽ {video_published_times[i]}")
-        
+                f.write(
+                    f"{video_link} ‽ {video_titles[i]} ‽ {video_views[i]} ‽ {video_published_times[i]}")
+
     time.sleep(3)
     document_height_after = driver.execute_script(
         "return document.documentElement.scrollHeight")
