@@ -3112,3 +3112,24 @@ DevTools listening on ws://127.0.0.1:58168/devtools/browser/205b3818-950f-4403-8
 [2023-01-24T04:48:12Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
 [2023-01-24T04:48:12Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
 [2023-01-24T04:48:12Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+1674535775633	geckodriver	INFO	Listening on 127.0.0.1:58287
+1674535778678	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--window-size=1920,1080" "--disable-gpu" "--disable-extensions" "--no-sandbox" "--disable-dev-shm-usage" "--disable-features=VizDisplayCompositor" "--disable-features=NetworkService" "--remote-debugging-port" "58288" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\dhohi\\AppData\\Local\\Temp\\rust_mozprofile4ipogL"
+*** You are running in headless mode.
+1674535779299	Marionette	INFO	Marionette enabled
+1674535779308	Marionette	INFO	Listening on port 58297
+Read port: 58297
+WebDriver BiDi listening on ws://127.0.0.1:58288
+1674535779533	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\dhohi\\AppData\\Local\\Temp\\rust_mozprofile4ipogL\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:58288/devtools/browser/9abc548c-85ec-4f78-911b-bc6d9ddf4b33
+1674535807281	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+[2023-01-24T04:50:09Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-24T04:50:09Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-24T04:50:09Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-24T04:50:09Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-24T04:50:09Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-24T04:50:09Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-24T04:50:09Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-24T04:50:09Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+1674535884149	Marionette	INFO	Stopped listening on port 58297
