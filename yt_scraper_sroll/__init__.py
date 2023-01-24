@@ -22,6 +22,7 @@ options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--disable-features=VizDisplayCompositor")
 options.add_argument("--disable-features=NetworkService")
 driver = webdriver.Firefox(options=options)
+driver.delete_all_cookies()
 BASE_DIR = os.path.join(os.path.dirname(__file__), '..')
 
 
@@ -49,6 +50,8 @@ def handler(request, jsonify):
     video_views = []
     video_published_times = []
 
+    res_data = []
+
     max_scroll = scroll
     file_name = f"{query}_scroll-{max_scroll}_{now.strftime('%Y%m%d_%H%M%S')}"
 
@@ -57,23 +60,20 @@ def handler(request, jsonify):
         print("Scroll:", max_scroll)
         max_scroll -= 1
         video_ids = driver.find_elements(By.XPATH, "//a[@id='video-title']")
-        print('video_ids: ', video_ids)
+        # print('video_ids: ', video_ids)
 
         for i, video_id in enumerate(video_ids):
-            print("videoTitle", video_id.get_attribute("title"))
-            print("videoID", video_id.get_attribute("href"))
             video_links.append(video_id.get_attribute("href"))
             video_titles.append(video_id.get_attribute("title"))
 
         video_infos = driver.find_elements(
             By.XPATH, "//span[@class='inline-metadata-item style-scope ytd-video-meta-block']")
-        # print('video_infos: ', video_infos)
 
         for i, video_info in enumerate(video_infos):
-            if "views" in video_info.text:
+            if "views" in video_info.text or "ditonton" in video_info.text:
                 view_count = video_info.text
                 video_views.append(view_count)
-            elif "ago" in video_info.text:
+            elif "ago" in video_info.text or "yang lalu" in video_info.text:
                 published_time = video_info.text
                 video_published_times.append(published_time)
 
@@ -81,24 +81,40 @@ def handler(request, jsonify):
             "return document.documentElement.scrollHeight")
         driver.execute_script(
             f"window.scrollTo(0, {document_height_before + scroll_height});")
-        
-        # write to file
-        with open(f"{BASE_DIR}/results/{file_name}.txt", "a") as f:
-            print(video_titles)
-            for i, video_link in enumerate(video_links):
-                print(video_link)
-                # if i < len(video_links) - 1:
-                #     f.write(
-                #         f"{video_link} ‽ {video_titles[i]} ‽ {video_views[i]} ‽ {video_published_times[i]}\n")
-                # else:
-                #     f.write(
-                #         f"{video_link} ‽ {video_titles[i]} ‽ {video_views[i]} ‽ {video_published_times[i]}")
 
-        time.sleep(1.5)
+        time.sleep(3)
+
+        # print("video_links:", len(video_links))
+        # print("video_titles:", len(video_titles))
+        # print("video_views:", len(video_views))
+        # print("video_published_times:", len(video_published_times))
+
+        # write to file
+        with open(f"{BASE_DIR}/results/{file_name}.txt", "a", encoding="utf-8") as f:
+            for i, video_link in enumerate(video_links):
+                v_title = video_titles[i] if video_titles[i] else ""
+                v_views = video_views[i] if video_views[i] else ""
+                v_published_times = video_published_times[i] if video_published_times[i] else ""
+                
+                res_data.append({
+                    "url": video_link,
+                    "title": v_title,
+                    "views": v_views,
+                    "published": v_published_times
+                })
+                
+                if i < len(video_links) - 1:
+                    f.write(
+                        f"{video_link} ‽ {v_title} ‽ {v_views} ‽ {v_published_times}\n")
+                else:
+                    f.write(
+                        f"{video_link} ‽ {v_title} ‽ {v_views} ‽ {v_published_times}")
+
+        time.sleep(2)
         document_height_after = driver.execute_script(
             "return document.documentElement.scrollHeight")
         if document_height_after == document_height_before:
             break
 
     driver.quit()
-    return jsonify({'message': 'success', "filename": file_name}), 200
+    return jsonify({'message': 'success', "filename": f"{file_name}.txt", "results": res_data}), 200

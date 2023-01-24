@@ -64,6 +64,13 @@ while max_scroll > 0:
         "return document.documentElement.scrollHeight")
     driver.execute_script(
         f"window.scrollTo(0, {document_height_before + scroll_height});")
+    
+    time.sleep(3)
+    
+    print("video_links:", len(video_links))
+    print("video_titles:", len(video_titles))
+    print("video_views:", len(video_views))
+    print("video_published_times:", len(video_published_times))
 
     # write to file
     with open(f"results/{file_name}.txt", "a") as f:
@@ -75,7 +82,7 @@ while max_scroll > 0:
                 f.write(
                     f"{video_link} ‽ {video_titles[i]} ‽ {video_views[i]} ‽ {video_published_times[i]}")
 
-    time.sleep(3)
+    time.sleep(2)
     document_height_after = driver.execute_script(
         "return document.documentElement.scrollHeight")
     if document_height_after == document_height_before:
