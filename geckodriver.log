@@ -3133,3 +3133,42 @@ DevTools listening on ws://127.0.0.1:58288/devtools/browser/9abc548c-85ec-4f78-9
 [2023-01-24T04:50:09Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
 [2023-01-24T04:50:09Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
 1674535884149	Marionette	INFO	Stopped listening on port 58297
+1674561018059	geckodriver	INFO	Listening on 127.0.0.1:63708
+1674561021117	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--window-size=1920,1080" "--disable-gpu" "--disable-extensions" "--no-sandbox" "--disable-dev-shm-usage" "--disable-features=VizDisplayCompositor" "--disable-features=NetworkService" "--remote-debugging-port" "63709" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\dhohi\\AppData\\Local\\Temp\\rust_mozprofileGmVC40"
+*** You are running in headless mode.
+1674561021940	Marionette	INFO	Marionette enabled
+1674561021956	Marionette	INFO	Listening on port 63722
+Read port: 63722
+WebDriver BiDi listening on ws://127.0.0.1:63709
+1674561022218	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\dhohi\\AppData\\Local\\Temp\\rust_mozprofileGmVC40\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:63709/devtools/browser/7095de6a-1f53-4c14-9e73-ceba824ba3b8
+1674561043446	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+[2023-01-24T11:50:45Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-24T11:50:45Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-24T11:50:45Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-24T11:50:45Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-24T11:50:45Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-24T11:50:45Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-24T11:50:45Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-24T11:50:45Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+1674561315513	geckodriver	INFO	Listening on 127.0.0.1:63918
+1674561318553	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--window-size=1920,1080" "--disable-gpu" "--disable-extensions" "--no-sandbox" "--disable-dev-shm-usage" "--disable-features=VizDisplayCompositor" "--disable-features=NetworkService" "--remote-debugging-port" "63919" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\dhohi\\AppData\\Local\\Temp\\rust_mozprofileLjHv2E"
+*** You are running in headless mode.
+1674561319196	Marionette	INFO	Marionette enabled
+1674561319205	Marionette	INFO	Listening on port 63928
+Read port: 63928
+WebDriver BiDi listening on ws://127.0.0.1:63919
+1674561319386	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\dhohi\\AppData\\Local\\Temp\\rust_mozprofileLjHv2E\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:63919/devtools/browser/0b4a7fb5-eeeb-4d3e-aff0-e8e0a5263df0
+1674561326330	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+[2023-01-24T11:55:26Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-24T11:55:26Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-24T11:55:26Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-24T11:55:28Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-24T11:55:28Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-24T11:55:28Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-01-24T11:55:28Z ERROR mp4parse] Found 2 nul bytes in "\0\0"

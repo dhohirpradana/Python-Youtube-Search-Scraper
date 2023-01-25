@@ -3,9 +3,12 @@ import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 import urllib.parse
 import datetime
 import os
+
+binary = FirefoxBinary(r'C:\Program Files\Mozilla Firefox\firefox.exe')
 
 # options = webdriver.ChromeOptions()
 # # options.add_argument("start-maximized")
@@ -21,7 +24,7 @@ options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--disable-features=VizDisplayCompositor")
 options.add_argument("--disable-features=NetworkService")
-driver = webdriver.Firefox(options=options)
+driver = webdriver.Firefox(options=options, firefox_binary=binary)
 driver.delete_all_cookies()
 BASE_DIR = os.path.join(os.path.dirname(__file__), '..')
 
@@ -92,9 +95,9 @@ def handler(request, jsonify):
         # write to file
         with open(f"{BASE_DIR}/results/{file_name}.txt", "a", encoding="utf-8") as f:
             for i, video_link in enumerate(video_links):
-                v_title = video_titles[i] if video_titles[i] else ""
-                v_views = video_views[i] if video_views[i] else ""
-                v_published_times = video_published_times[i] if video_published_times[i] else ""
+                v_title = "" if not video_titles[i] else video_titles[i] 
+                v_views = "" if not video_views[i] else video_views[i]
+                v_published_times = "" if not video_published_times[i] else video_published_times[i]
                 
                 res_data.append({
                     "url": video_link,
