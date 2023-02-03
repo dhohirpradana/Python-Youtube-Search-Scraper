@@ -8,7 +8,7 @@ import urllib.parse
 import datetime
 import os
 
-binary = FirefoxBinary(r'C:\Program Files\Mozilla Firefox\firefox.exe')
+# binary = FirefoxBinary(r'C:\Program Files\Mozilla Firefox\firefox.exe')
 
 # options = webdriver.ChromeOptions()
 # # options.add_argument("start-maximized")
@@ -24,7 +24,9 @@ options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--disable-features=VizDisplayCompositor")
 options.add_argument("--disable-features=NetworkService")
-driver = webdriver.Firefox(options=options, firefox_binary=binary)
+# , firefox_binary=binary
+
+driver = webdriver.Firefox(options=options)
 driver.delete_all_cookies()
 BASE_DIR = os.path.join(os.path.dirname(__file__), '..')
 
@@ -61,7 +63,6 @@ def handler(request, jsonify):
     # while True:
     while max_scroll > 0:
         print("Scroll:", max_scroll)
-        max_scroll -= 1
         video_ids = driver.find_elements(By.XPATH, "//a[@id='video-title']")
         # print('video_ids: ', video_ids)
 
@@ -133,12 +134,15 @@ def handler(request, jsonify):
                 else:
                     f.write(
                         f"{video_link}¦¦{v_title}¦¦{v_views}¦¦{v_published_times}")
-
+        
+        max_scroll -= 1
+        
         time.sleep(2)
         document_height_after = driver.execute_script(
             "return document.documentElement.scrollHeight")
         if document_height_after == document_height_before:
             break
 
-    driver.quit()
+    # driver.quit()
+    # driver.close()
     return jsonify({'message': 'success', "filename": f"{file_name}.txt", "results": res_data}), 200
