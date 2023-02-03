@@ -66,8 +66,14 @@ def handler(request, jsonify):
         # print('video_ids: ', video_ids)
 
         for i, video_id in enumerate(video_ids):
-            # check playlist or not
+            # skip playlist
             if "list" in video_id.get_attribute("href"):
+                print("playlist")
+                continue
+            
+            # skip channel
+            if video_id.get_attribute("href").startswith("/@"):
+                print("channel")
                 continue
             
             video_links.append(video_id.get_attribute("href"))
@@ -91,10 +97,10 @@ def handler(request, jsonify):
 
         time.sleep(3)
 
-        # print("video_links:", len(video_links))
-        # print("video_titles:", len(video_titles))
-        # print("video_views:", len(video_views))
-        # print("video_published_times:", len(video_published_times))
+        print("video_links:", len(video_links))
+        print("video_titles:", len(video_titles))
+        print("video_views:", len(video_views))
+        print("video_published_times:", len(video_published_times))
 
         # write to file
         with open(f"{BASE_DIR}/results/{file_name}.txt", "a", encoding="utf-8") as f:
