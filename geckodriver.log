@@ -3679,3 +3679,22 @@ JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Pha
 JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
 JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
 JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+1675416840604	geckodriver	INFO	Listening on 127.0.0.1:61522
+1675416843640	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--window-size=1920,1080" "--d ... 3" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\dhohi\\AppData\\Local\\Temp\\rust_mozprofilevuQ0xw"
+*** You are running in headless mode.
+1675416844251	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1675416844260	Marionette	INFO	Listening on port 61530
+Read port: 61530
+WebDriver BiDi listening on ws://127.0.0.1:61523
+1675416844495	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\dhohi\\AppData\\Local\\Temp\\rust_mozprofilevuQ0xw\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:61523/devtools/browser/01e53287-51f5-425a-9e82-b4ac74a2964f
+1675416863058	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+[2023-02-03T09:34:25Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T09:34:25Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T09:34:25Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T09:34:25Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T09:34:25Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T09:34:25Z ERROR mp4parse] Found 2 nul bytes in "\0\0"

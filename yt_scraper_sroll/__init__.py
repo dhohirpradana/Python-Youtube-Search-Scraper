@@ -47,102 +47,121 @@ def handler(request, jsonify):
     print('Query URL: ', query_url)
     now = datetime.datetime.now()
 
-    driver.get(f"https://www.youtube.com/results?search_query={query_url}")
+    try:
+        driver.get(f"https://www.youtube.com/results?search_query={query_url}")
 
-    scroll_height = driver.execute_script("return window.innerHeight")
-    video_links = []
-    video_titles = []
-    video_views = []
-    video_published_times = []
+        scroll_height = driver.execute_script("return window.innerHeight")
+        video_links = []
+        video_titles = []
+        video_views = []
+        video_published_times = []
 
-    res_data = []
+        res_data = []
 
-    max_scroll = scroll
-    file_name = f"{query}_scroll-{max_scroll}_{now.strftime('%Y%m%d_%H%M%S')}"
+        max_scroll = scroll
+        file_name = f"{query}_scroll-{max_scroll}_{now.strftime('%Y%m%d_%H%M%S')}"
 
-    # while True:
-    while max_scroll > 0:
-        print("Scroll:", max_scroll)
-        video_ids = driver.find_elements(By.XPATH, "//a[@id='video-title']")
-        # print('video_ids: ', video_ids)
+        scroll_num = 1
+        # while True:
+        while scroll_num <= max_scroll:
+            print(f"Scrolling {scroll_num} of {max_scroll}")
+            video_ids = driver.find_elements(
+                By.XPATH, "//a[@id='video-title']")
 
-        for i, video_id in enumerate(video_ids):
-            # skip playlist
-            if "list" in video_id.get_attribute("href"):
-                print("playlist")
-                continue
-            
-            # skip channel
-            if video_id.get_attribute("href").startswith("/@"):
-                print("channel")
-                continue
-            
-            video_links.append(video_id.get_attribute("href"))
-            video_titles.append(video_id.get_attribute("title"))
+            finish_video_ids = False
+            for i, video_id in enumerate(video_ids):
+                # skip playlist
+                if "list" in video_id.get_attribute("href"):
+                    print("playlist")
+                    continue
 
-        video_infos = driver.find_elements(
-            By.XPATH, "//span[@class='inline-metadata-item style-scope ytd-video-meta-block']")
+                # skip channel
+                if video_id.get_attribute("href").startswith("/@"):
+                    print("channel")
+                    continue
 
-        for i, video_info in enumerate(video_infos):
-            if "views" in video_info.text or "ditonton" in video_info.text:
-                view_count = video_info.text
-                video_views.append(view_count)
-            elif "ago" in video_info.text or "yang lalu" in video_info.text:
-                published_time = video_info.text
-                video_published_times.append(published_time)
-
-        document_height_before = driver.execute_script(
-            "return document.documentElement.scrollHeight")
-        driver.execute_script(
-            f"window.scrollTo(0, {document_height_before + scroll_height});")
-
-        time.sleep(3)
-
-        print("video_links:", len(video_links))
-        print("video_titles:", len(video_titles))
-        print("video_views:", len(video_views))
-        print("video_published_times:", len(video_published_times))
-
-        # write to file
-        with open(f"{BASE_DIR}/results/{file_name}.txt", "a", encoding="utf-8") as f:
-            for i, video_link in enumerate(video_links):
-                try:
-                    v_title = video_titles[i]
-                except IndexError:
-                    v_title = "-"
-                    
-                try:
-                    v_views = video_views[i]
-                except IndexError:
-                    v_views = "-"
-                    
-                try:
-                    v_published_times = video_published_times[i]
-                except IndexError:
-                    v_published_times = "-"
+                video_links.append(video_id.get_attribute("href"))
+                video_titles.append(video_id.get_attribute("title"))
                 
-                res_data.append({
-                    "url": video_link,
-                    "title": v_title,
-                    "views": v_views,
-                    "published": v_published_times
-                })
+                if i == len(video_ids) - 1:
+                    finish_video_ids = True
+
+            video_infos = driver.find_elements(
+                By.XPATH, "//span[@class='inline-metadata-item style-scope ytd-video-meta-block']")
+
+            finish_video_infos = False
+            for i, video_info in enumerate(video_infos):
+                if "views" in video_info.text or "ditonton" in video_info.text:
+                    view_count = video_info.text
+                    video_views.append(view_count)
+                elif "ago" in video_info.text or "yang lalu" in video_info.text:
+                    published_time = video_info.text
+                    video_published_times.append(published_time)
                 
-                if i < len(video_links) - 1:
-                    f.write(
-                        f"{video_link}¦¦{v_title}¦¦{v_views}¦¦{v_published_times}\n")
+                if i == len(video_infos) - 1:
+                    finish_video_infos = True
+
+            # print("video_links:", len(video_links))
+            # print("video_titles:", len(video_titles))
+            # print("video_views:", len(video_views))
+            # print("video_published_times:", len(video_published_times))
+
+            def write_to_file():
+                if finish_video_ids and finish_video_infos:
+                    with open(f"{BASE_DIR}/results/{file_name}.txt", "a", encoding="utf-8") as f:
+                        for i, video_link in enumerate(video_links):
+                            try:
+                                v_title = video_titles[i]
+                            except IndexError:
+                                v_title = "-"
+
+                            try:
+                                v_views = video_views[i]
+                            except IndexError:
+                                v_views = "-"
+
+                            try:
+                                v_published_times = video_published_times[i]
+                            except IndexError:
+                                v_published_times = "-"
+
+                            res_data.append({
+                                "url": video_link,
+                                "title": v_title,
+                                "views": v_views,
+                                "published": v_published_times
+                            })
+
+                            if i < len(video_links) - 1:
+                                f.write(
+                                    f"{video_link}¦¦{v_title}¦¦{v_views}¦¦{v_published_times}\n")
+                            else:
+                                f.write(
+                                    f"{video_link}¦¦{v_title}¦¦{v_views}¦¦{v_published_times}")
                 else:
-                    f.write(
-                        f"{video_link}¦¦{v_title}¦¦{v_views}¦¦{v_published_times}")
-        
-        max_scroll -= 1
-        
-        time.sleep(2)
-        document_height_after = driver.execute_script(
-            "return document.documentElement.scrollHeight")
-        if document_height_after == document_height_before:
-            break
+                    print("Video ID or Video Info not finished")
+                    write_to_file()
+                    
+            write_to_file()
 
-    # driver.quit()
-    # driver.close()
+            document_height_before = driver.execute_script(
+                "return document.documentElement.scrollHeight")
+            driver.execute_script(
+                f"window.scrollTo(0, {document_height_before + scroll_height});")
+
+            scroll_num += 1
+
+            # delay before next scroll
+            time.sleep(2)
+            document_height_after = driver.execute_script(
+                "return document.documentElement.scrollHeight")
+            
+            # end of scroll
+            if document_height_after == document_height_before:
+                break
+            
+    except Exception as e:
+        print("Error: ", e)
+        return jsonify({'message': str(e)}), 500
+
     return jsonify({'message': 'success', "filename": f"{file_name}.txt", "results": res_data}), 200
