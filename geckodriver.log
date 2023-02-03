@@ -3220,3 +3220,15 @@ DevTools listening on ws://127.0.0.1:50359/devtools/browser/599b7d2e-123d-421d-8
 1675404812223	Marionette	INFO	Stopped listening on port 50568
 Dynamically enable window occlusion 1
 JavaScript error: https://www.youtube.com/results?search_query=berita%20terbaru&themeRefresh=1, line 12: TypeError: can't access dead object
+1675406202878	geckodriver	INFO	Listening on 127.0.0.1:51603
+1675406205911	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--window-size=1920,1080" "--d ... 4" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\dhohi\\AppData\\Local\\Temp\\rust_mozprofilenje9Nv"
+*** You are running in headless mode.
+1675406206556	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1675406206565	Marionette	INFO	Listening on port 51611
+Read port: 51611
+WebDriver BiDi listening on ws://127.0.0.1:51604
+1675406206810	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\dhohi\\AppData\\Local\\Temp\\rust_mozprofilenje9Nv\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:51604/devtools/browser/05d9e3ea-d872-4db7-b496-64e00ebd66fb

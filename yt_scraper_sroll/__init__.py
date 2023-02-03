@@ -123,10 +123,10 @@ def handler(request, jsonify):
                 
                 if i < len(video_links) - 1:
                     f.write(
-                        f"{video_link}‽‽{v_title}‽‽{v_views}‽‽{v_published_times}\n")
+                        f"{video_link}¦¦{v_title}¦¦{v_views}¦¦{v_published_times}\n")
                 else:
                     f.write(
-                        f"{video_link}‽‽{v_title}‽‽{v_views}‽‽{v_published_times}")
+                        f"{video_link}¦¦{v_title}¦¦{v_views}¦¦{v_published_times}")
 
         time.sleep(2)
         document_height_after = driver.execute_script(
