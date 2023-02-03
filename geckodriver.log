@@ -3172,3 +3172,51 @@ DevTools listening on ws://127.0.0.1:63919/devtools/browser/0b4a7fb5-eeeb-4d3e-a
 [2023-01-24T11:55:28Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
 [2023-01-24T11:55:28Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
 [2023-01-24T11:55:28Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+1675404364574	geckodriver	INFO	Listening on 127.0.0.1:50214
+1675404367643	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--window-size=1920,1080" "--d ... 5" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\dhohi\\AppData\\Local\\Temp\\rust_mozprofileQ6FWMM"
+*** You are running in headless mode.
+1675404368270	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1675404368280	Marionette	INFO	Listening on port 50225
+Read port: 50225
+WebDriver BiDi listening on ws://127.0.0.1:50215
+1675404368526	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\dhohi\\AppData\\Local\\Temp\\rust_mozprofileQ6FWMM\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:50215/devtools/browser/ade61b1a-806a-4f17-b27b-027c22e1fb78
+1675404383387	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+[2023-02-03T06:06:25Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T06:06:25Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T06:06:25Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T06:06:25Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T06:06:25Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T06:06:25Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[Child 14972, MediaDecoderStateMachine #1] WARNING: Decoder=22e0cc6d800 state=DECODING_METADATA Decode metadata failed, shutting down decoder: file /builds/worker/checkouts/gecko/dom/media/MediaDecoderStateMachine.cpp:372
+[Child 14972, MediaDecoderStateMachine #1] WARNING: Decoder=22e0cc6d800 Decode error: NS_ERROR_DOM_MEDIA_METADATA_ERR (0x806e0006) - static MP4Metadata::ResultAndByteBuffer __cdecl mozilla::MP4Metadata::Metadata(mozilla::ByteStream *): Cannot parse metadata: file /builds/worker/checkouts/gecko/dom/media/MediaDecoderStateMachineBase.cpp:164
+[Child 14972, MediaDecoderStateMachine #1] WARNING: Decoder=22e0cc6d500 state=DECODING_METADATA Decode metadata failed, shutting down decoder: file /builds/worker/checkouts/gecko/dom/media/MediaDecoderStateMachine.cpp:372
+[Child 14972, MediaDecoderStateMachine #1] WARNING: Decoder=22e0cc6d500 Decode error: NS_ERROR_DOM_MEDIA_METADATA_ERR (0x806e0006) - static MP4Metadata::ResultAndByteBuffer __cdecl mozilla::MP4Metadata::Metadata(mozilla::ByteStream *): Cannot parse metadata: file /builds/worker/checkouts/gecko/dom/media/MediaDecoderStateMachineBase.cpp:164
+1675404627528	geckodriver	INFO	Listening on 127.0.0.1:50358
+1675404630578	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--window-size=1920,1080" "--d ... 9" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\dhohi\\AppData\\Local\\Temp\\rust_mozprofilekW1u90"
+*** You are running in headless mode.
+1675404631209	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1675404631219	Marionette	INFO	Listening on port 50568
+Read port: 50568
+WebDriver BiDi listening on ws://127.0.0.1:50359
+1675404631445	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\dhohi\\AppData\\Local\\Temp\\rust_mozprofilekW1u90\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:50359/devtools/browser/599b7d2e-123d-421d-8629-f30d7e581e10
+1675404640031	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+[2023-02-03T06:10:44Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T06:10:44Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T06:10:44Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T06:10:44Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T06:10:44Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T06:10:44Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T06:10:44Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[Child 1436, MediaDecoderStateMachine #1] WARNING: Decoder=2364bf3df00 state=DECODING_METADATA Decode metadata failed, shutting down decoder: file /builds/worker/checkouts/gecko/dom/media/MediaDecoderStateMachine.cpp:372
+[Child 1436, MediaDecoderStateMachine #1] WARNING: Decoder=2364bf3df00 Decode error: NS_ERROR_DOM_MEDIA_METADATA_ERR (0x806e0006) - static MP4Metadata::ResultAndByteBuffer __cdecl mozilla::MP4Metadata::Metadata(mozilla::ByteStream *): Cannot parse metadata: file /builds/worker/checkouts/gecko/dom/media/MediaDecoderStateMachineBase.cpp:164
+1675404812223	Marionette	INFO	Stopped listening on port 50568
+Dynamically enable window occlusion 1
+JavaScript error: https://www.youtube.com/results?search_query=berita%20terbaru&themeRefresh=1, line 12: TypeError: can't access dead object

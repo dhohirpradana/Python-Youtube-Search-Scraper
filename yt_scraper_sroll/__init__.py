@@ -66,6 +66,10 @@ def handler(request, jsonify):
         # print('video_ids: ', video_ids)
 
         for i, video_id in enumerate(video_ids):
+            # check playlist or not
+            if "list" in video_id.get_attribute("href"):
+                continue
+            
             video_links.append(video_id.get_attribute("href"))
             video_titles.append(video_id.get_attribute("title"))
 
@@ -95,9 +99,20 @@ def handler(request, jsonify):
         # write to file
         with open(f"{BASE_DIR}/results/{file_name}.txt", "a", encoding="utf-8") as f:
             for i, video_link in enumerate(video_links):
-                v_title = "" if not video_titles[i] else video_titles[i] 
-                v_views = "" if not video_views[i] else video_views[i]
-                v_published_times = "" if not video_published_times[i] else video_published_times[i]
+                try:
+                    v_title = video_titles[i]
+                except IndexError:
+                    v_title = "-"
+                    
+                try:
+                    v_views = video_views[i]
+                except IndexError:
+                    v_views = "-"
+                    
+                try:
+                    v_published_times = video_published_times[i]
+                except IndexError:
+                    v_published_times = "-"
                 
                 res_data.append({
                     "url": video_link,
@@ -108,10 +123,10 @@ def handler(request, jsonify):
                 
                 if i < len(video_links) - 1:
                     f.write(
-                        f"{video_link} ‽ {v_title} ‽ {v_views} ‽ {v_published_times}\n")
+                        f"{video_link}‽‽{v_title}‽‽{v_views}‽‽{v_published_times}\n")
                 else:
                     f.write(
-                        f"{video_link} ‽ {v_title} ‽ {v_views} ‽ {v_published_times}")
+                        f"{video_link}‽‽{v_title}‽‽{v_views}‽‽{v_published_times}")
 
         time.sleep(2)
         document_height_after = driver.execute_script(
