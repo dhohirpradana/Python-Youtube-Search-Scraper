@@ -7,26 +7,37 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 import urllib.parse
 import datetime
 import os
+from selenium.webdriver.chrome.options import Options
 
 # binary = FirefoxBinary(r'C:\Program Files\Mozilla Firefox\firefox.exe')
 
-# options = webdriver.ChromeOptions()
-# # options.add_argument("start-maximized")
-# options.add_experimental_option("excludeSwitches", ["enable-automation"])
-# options.add_experimental_option('useAutomationExtension', False)
+# options = webdriver.FirefoxOptions()
+# options.add_argument("--headless")
+# options.add_argument("--window-size=1920,1080")
+# options.add_argument("--disable-gpu")
+# options.add_argument("--disable-extensions")
+# options.add_argument("--no-sandbox")
+# options.add_argument("--disable-dev-shm-usage")
+# options.add_argument("--disable-features=VizDisplayCompositor")
+# options.add_argument("--disable-features=NetworkService")
+# # , firefox_binary=binary
 
-options = webdriver.FirefoxOptions()
-options.add_argument("--headless")
-options.add_argument("--window-size=1920,1080")
-options.add_argument("--disable-gpu")
-options.add_argument("--disable-extensions")
-options.add_argument("--no-sandbox")
-options.add_argument("--disable-dev-shm-usage")
-options.add_argument("--disable-features=VizDisplayCompositor")
-options.add_argument("--disable-features=NetworkService")
-# , firefox_binary=binary
+# driver = webdriver.Firefox(options=options)
 
-driver = webdriver.Firefox(options=options)
+def set_chrome_options() -> Options:
+    """Sets chrome options for Selenium.
+    Chrome options for headless browser is enabled.
+    """
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_prefs = {}
+    chrome_options.experimental_options["prefs"] = chrome_prefs
+    chrome_prefs["profile.default_content_settings"] = {"images": 2}
+    return chrome_options
+
+driver = webdriver.Chrome(options=set_chrome_options())
 driver.delete_all_cookies()
 BASE_DIR = os.path.join(os.path.dirname(__file__), '..')
 
