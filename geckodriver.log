@@ -1,0 +1,22 @@
+1675419593741	geckodriver	INFO	Listening on 127.0.0.1:51761
+1675419596820	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--window-size=1920,1080" "--d ... 2" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\dhohi\\AppData\\Local\\Temp\\rust_mozprofileWZukZw"
+*** You are running in headless mode.
+1675419597487	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1675419597497	Marionette	INFO	Listening on port 51770
+Read port: 51770
+WebDriver BiDi listening on ws://127.0.0.1:51762
+1675419597714	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\dhohi\\AppData\\Local\\Temp\\rust_mozprofileWZukZw\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:51762/devtools/browser/d1c995a1-f126-44e1-8468-8fe6d2a3528c
+1675419616011	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+[2023-02-03T10:20:18Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T10:20:18Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T10:20:18Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T10:20:18Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T10:20:18Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T10:20:18Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T10:20:18Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+[2023-02-03T10:20:18Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+1675420107561	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: error

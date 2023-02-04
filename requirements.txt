@@ -11,3 +11,4 @@ urllib3==1.26.12
 Werkzeug==2.0.2
 python-dotenv==0.21.0
 flask_cors==3.0.3
+selenium==4.8.0
