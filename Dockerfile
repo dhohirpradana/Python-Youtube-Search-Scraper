@@ -1,4 +1,4 @@
-FROM python:3.8-slim-buster
+FROM ubuntu
 
 WORKDIR /app
 COPY requirements.txt requirements.txt
@@ -12,12 +12,17 @@ RUN apt-get -y update
 RUN apt-get install -y google-chrome-stable
 
 # install chromedriver
-RUN apt-get install -yqq unzip
+RUN apt-get install -y unzip
 RUN wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip
 RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
 
 # set display port to avoid crash
 ENV DISPLAY=:99
+
+# Install Python 3.7
+RUN apt-get update && apt-get install -y software-properties-common
+RUN add-apt-repository ppa:deadsnakes/ppa
+RUN apt-get update && apt-get install -y python3.7 python3.7-dev python3-pip
 
 RUN pip3 install -r requirements.txt
 COPY . .
