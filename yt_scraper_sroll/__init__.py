@@ -1,13 +1,12 @@
-from selenium import webdriver
 import time
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 import urllib.parse
-import datetime
-import os
+
+from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 
 # binary = FirefoxBinary(r'C:\Program Files\Mozilla Firefox\firefox.exe')
 
@@ -24,6 +23,7 @@ from selenium.webdriver.chrome.options import Options
 
 # driver = webdriver.Firefox(options=options)
 
+
 def set_chrome_options() -> Options:
     """Sets chrome options for Selenium.
     Chrome options for headless browser is enabled.
@@ -32,14 +32,15 @@ def set_chrome_options() -> Options:
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_prefs = {}
+    chrome_prefs = dict[str, dict[str, int]]()
     chrome_options.experimental_options["prefs"] = chrome_prefs
     chrome_prefs["profile.default_content_settings"] = {"images": 2}
     return chrome_options
 
+
 driver = webdriver.Chrome(options=set_chrome_options())
 driver.delete_all_cookies()
-BASE_DIR = os.path.join(os.path.dirname(__file__), '..')
+# BASE_DIR = os.path.join(os.path.dirname(__file__), '..')
 
 
 def handler(request, jsonify):
@@ -51,12 +52,13 @@ def handler(request, jsonify):
     try:
         query = body['query']
         scroll = body['scroll']
-    except Exception as e:
-        return jsonify({'message': str(e) + " not provided"}), 400
+    except AttributeError as err:
+        return jsonify({'message': str(err) + " not provided"}), 400
 
     query_url = urllib.parse.quote(query)
+    if scroll < 1:
+        scroll = 1
     print('Query URL: ', query_url)
-    now = datetime.datetime.now()
 
     try:
         driver.get(f"https://www.youtube.com/results?search_query={query_url}")
@@ -70,9 +72,8 @@ def handler(request, jsonify):
         res_data = []
 
         max_scroll = scroll
-        file_name = f"{query}_scroll-{max_scroll}_{now.strftime('%Y%m%d_%H%M%S')}"
 
-        scroll_num = 1
+        scroll_num = 0
         # while True:
         while scroll_num <= max_scroll:
             print(f"Scrolling {scroll_num} of {max_scroll}")
@@ -81,6 +82,7 @@ def handler(request, jsonify):
 
             finish_video_ids = False
             for i, video_id in enumerate(video_ids):
+                print(video_id.get_attribute("href"))
                 # skip playlist
                 if "list" in video_id.get_attribute("href"):
                     print("playlist")
@@ -93,7 +95,7 @@ def handler(request, jsonify):
 
                 video_links.append(video_id.get_attribute("href"))
                 video_titles.append(video_id.get_attribute("title"))
-                
+
                 if i == len(video_ids) - 1:
                     finish_video_ids = True
 
@@ -102,13 +104,14 @@ def handler(request, jsonify):
 
             finish_video_infos = False
             for i, video_info in enumerate(video_infos):
+                print(video_info.text)
                 if "views" in video_info.text or "ditonton" in video_info.text:
                     view_count = video_info.text
                     video_views.append(view_count)
                 elif "ago" in video_info.text or "yang lalu" in video_info.text:
                     published_time = video_info.text
                     video_published_times.append(published_time)
-                
+
                 if i == len(video_infos) - 1:
                     finish_video_infos = True
 
@@ -119,40 +122,33 @@ def handler(request, jsonify):
 
             def write_to_file():
                 if finish_video_ids and finish_video_infos:
-                    with open(f"{BASE_DIR}/results/{file_name}.txt", "a", encoding="utf-8") as f:
-                        for i, video_link in enumerate(video_links):
-                            try:
-                                v_title = video_titles[i]
-                            except IndexError:
-                                v_title = "-"
+                    for i, video_link in enumerate(video_links):
+                        try:
+                            v_title = video_titles[i]
+                        except IndexError:
+                            v_title = "-"
 
-                            try:
-                                v_views = video_views[i]
-                            except IndexError:
-                                v_views = "-"
+                        try:
+                            v_views = video_views[i]
+                        except IndexError:
+                            v_views = "-"
 
-                            try:
-                                v_published_times = video_published_times[i]
-                            except IndexError:
-                                v_published_times = "-"
+                        try:
+                            v_published_times = video_published_times[i]
+                        except IndexError:
+                            v_published_times = "-"
 
-                            res_data.append({
-                                "url": video_link,
-                                "title": v_title,
-                                "views": v_views,
-                                "published": v_published_times
-                            })
-
-                            if i < len(video_links) - 1:
-                                f.write(
-                                    f"{video_link}¦¦{v_title}¦¦{v_views}¦¦{v_published_times}\n")
-                            else:
-                                f.write(
-                                    f"{video_link}¦¦{v_title}¦¦{v_views}¦¦{v_published_times}")
+                        res_data.append({
+                            "url": video_link,
+                            "title": v_title,
+                            "views": v_views,
+                            "published": v_published_times
+                        })
                 else:
                     print("Video ID or Video Info not finished")
+                    time.sleep(2)
                     write_to_file()
-                    
+
             write_to_file()
 
             document_height_before = driver.execute_script(
@@ -166,13 +162,13 @@ def handler(request, jsonify):
             time.sleep(2)
             document_height_after = driver.execute_script(
                 "return document.documentElement.scrollHeight")
-            
+
             # end of scroll
             if document_height_after == document_height_before:
                 break
-            
-    except Exception as e:
-        print("Error: ", e)
-        return jsonify({'message': str(e)}), 500
 
-    return jsonify({'message': 'success', "filename": f"{file_name}.txt", "results": res_data}), 200
+    except ConnectionError as err:
+        print("Error: ", err)
+        return jsonify({'message': str(err)}), 500
+
+    return jsonify({'message': 'success', }), 200
